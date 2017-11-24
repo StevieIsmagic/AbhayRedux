@@ -3,11 +3,22 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      headerText: "Howdy, Welcome!",
+      contentText: "In this lecture we will go over Component State"
+    };
+  }
   render() {
     return (
       <div className="App">
-        <Header />
-        <Content />
+      <h1> {this.state.headerText} </h1>
+      <h1> {this.state.contentText} </h1>
+
+        {/* <Header />
+        <Content /> */}
       </div>
     );
   }
