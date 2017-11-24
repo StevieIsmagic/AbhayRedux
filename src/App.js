@@ -14,11 +14,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <h1> {this.state.headerText} </h1>
-      <h1> {this.state.contentText} </h1>
+      {/* <h1> {this.state.headerText} </h1>
+      <h1> {this.state.contentText} </h1> */}
 
-        {/* <Header />
-        <Content /> */}
+        <Header />
+        <Content />
       </div>
     );
   }
@@ -36,6 +36,29 @@ class Header extends Component {
 }
 
 class Content extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: [
+        {
+          "id": 1,
+          "name": "Foo",
+          "age": 30
+        },
+        {
+          "id": 2,
+          "name": "Bar",
+          "age": 20
+        },
+        {
+          "id": 3,
+          "name": "Baz",
+          "age": 35
+        }
+      ]
+    }
+  }
   render() {
     return (
       <p className="App-intro" >
