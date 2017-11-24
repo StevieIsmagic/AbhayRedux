@@ -14,9 +14,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      {/* <h1> {this.state.headerText} </h1>
-      <h1> {this.state.contentText} </h1> */}
-
+    
         <Header />
         <Content />
       </div>
@@ -62,9 +60,33 @@ class Content extends Component {
   render() {
     return (
       <p className="App-intro" >
-      <h1> What is JSX</h1>
-      <p> in this lecture we will go over the JSX tags </p>
+        <h1> What is JSX</h1>
+        <p> in this lecture we will go over the JSX tags </p>
+        <table> 
+          <thead>
+            <th>
+              <td>ID</td>
+              <td>NAME</td>
+              <td>AGE</td>
+            </th>
+          </thead>
+          <tbody>
+            {this.state.data.map((person, i) => <TableRow key={i} data={person}/>)}
+          </tbody>
+        </table>
       </p>
+    );
+  }
+}
+
+class TableRow extends Component {
+  render() {
+    return (
+      <tr> 
+        <td>{this.props.data.id}</td>
+        <td>{this.props.data.name}</td>
+        <td>{this.props.data.age}</td>
+      </tr>
     );
   }
 }
