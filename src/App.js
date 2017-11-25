@@ -14,9 +14,43 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-    
         <Header />
         <Content />
+        <Clock />
+      </div>
+    );
+  }
+}
+
+class Clock extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      date: new Date(),
+      count: 0
+    };
+  }
+  componentDidMount() {
+    this.timeID = setInterval(
+      () => {this.tick()}
+      , 1000)
+  }
+  tick() {
+    this.setState({ 
+      date: new Date(),
+      count: this.state.count + 1
+    });
+  }
+  componentWillUnmount() {
+    clearInterval(this.timeID)
+  }
+
+  render() {
+    return (
+      <div>
+        <h2> The time is: {this.state.date.toLocaleTimeString()}</h2>
+        <p>{this.state.count}</p>
       </div>
     );
   }
