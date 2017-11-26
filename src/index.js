@@ -4,6 +4,6 @@ import App from './App';
 import './index.css';
 
 ReactDOM.render(
-  <App />,
+  <App header="Props from the header..." content="prop from the content..." />,
   document.getElementById('root')
 );

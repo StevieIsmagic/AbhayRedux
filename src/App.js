@@ -17,9 +17,17 @@ class App extends Component {
         <Header />
         <Content />
         <Clock />
+        {this.props.header} <br ></br>
+        {this.props.content}
       </div>
     );
   }
+}
+
+App.defaultProps = {
+  header: 'default props for header..',
+  content: "default props for content.."
+
 }
 
 class Clock extends Component {
