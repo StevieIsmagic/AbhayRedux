@@ -7,18 +7,19 @@ class App extends Component {
     super(props);
 
     this.state = {
-      headerText: "Howdy, Welcome!",
+      headerText: "Howdy, Welcome Yeee state from parent <App /> was sent as props to its child <Header/>!",
       contentText: "In this lecture we will go over Component State"
     };
   }
   render() {
     return (
       <div className="App">
-        <Header />
-        <Content />
+        <Header header={this.state.headerText}/>
+        <Content content={this.state.contentText}/>
         <Clock />
-        {this.props.header} <br ></br>
-        {this.props.content}
+
+        {/* {this.props.header} <br ></br>
+        {this.props.content} */}
       </div>
     );
   }
@@ -69,6 +70,7 @@ class Header extends Component {
     return (
       <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        {this.props.header}
         <h2>Welcome to React</h2>
       </div>
     );
@@ -104,6 +106,7 @@ class Content extends Component {
       <p className="App-intro" >
         <h1> What is JSX</h1>
         <p> in this lecture we will go over the JSX tags </p>
+        {this.props.content}
         <table> 
           <thead>
             <th>
