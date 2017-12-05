@@ -31,46 +31,13 @@ App.defaultProps = {
 
 }
 
-class Clock extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      date: new Date(),
-      count: 0
-    };
-  }
-  componentDidMount() {
-    this.timeID = setInterval(
-      () => {this.tick()}
-      , 1000)
-  }
-  tick() {
-    this.setState({ 
-      date: new Date(),
-      count: this.state.count + 1
-    });
-  }
-  componentWillUnmount() {
-    clearInterval(this.timeID)
-  }
-
-  render() {
-    return (
-      <div>
-        <h2> The time is: {this.state.date.toLocaleTimeString()}</h2>
-        <p>{this.state.count}</p>
-      </div>
-    );
-  }
-}
 
 class Header extends Component {
   render() {
     return (
       <div className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {this.props.header}
+       
         <h2>Welcome to React</h2>
       </div>
     );
@@ -82,44 +49,17 @@ class Content extends Component {
     super(props);
 
     this.state = {
-      data: [
-        {
-          "id": 1,
-          "name": "Foo",
-          "age": 30
-        },
-        {
-          "id": 2,
-          "name": "Bar",
-          "age": 20
-        },
-        {
-          "id": 3,
-          "name": "Baz",
-          "age": 35
-        }
-      ]
-    }
+      data: [],
+      count: 0
+    };
   }
   render() {
     return (
-      <p className="App-intro" >
-        <h1> What is JSX</h1>
-        <p> in this lecture we will go over the JSX tags </p>
-        {this.props.content}
-        <table> 
-          <thead>
-            <th>
-              <td>ID</td>
-              <td>NAME</td>
-              <td>AGE</td>
-            </th>
-          </thead>
-          <tbody>
-            {this.state.data.map((person, i) => <TableRow key={i} data={person}/>)}
-          </tbody>
-        </table>
-      </p>
+      <div className="App-intro" >
+        <h1> Components API</h1>
+        <button conClick={this.updateMyState}>click meeee! </button>
+        <h4>State Data: {this.state.data}</h4>
+      </div>  
     );
   }
 }
