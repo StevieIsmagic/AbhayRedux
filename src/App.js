@@ -16,7 +16,6 @@ class App extends Component {
       <div className="App">
         <Header header={this.state.headerText}/>
         <Content content={this.state.contentText}/>
-        <Clock />
 
         {/* {this.props.header} <br ></br>
         {this.props.content} */}
@@ -52,12 +51,22 @@ class Content extends Component {
       data: [],
       count: 0
     };
+    this.updateMyState = this.updateMyState.bind(this);
+  }
+  updateMyState() {
+    var count = this.state.count;
+    count++;
+    var item = "Click - "+count;
+    var myArray = this.state.data;
+    myArray.push(item);
+    this.setState({data: myArray, count: count})
+
   }
   render() {
     return (
       <div className="App-intro" >
         <h1> Components API</h1>
-        <button conClick={this.updateMyState}>click meeee! </button>
+        <button onClick={this.updateMyState}>click meeee! </button>
         <h4>State Data: {this.state.data}</h4>
       </div>  
     );
