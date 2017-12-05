@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
 
@@ -52,6 +53,8 @@ class Content extends Component {
       count: 0
     };
     this.updateMyState = this.updateMyState.bind(this);
+    this.forceUpdateRandomNumber = this.forceUpdateRandomNumber.bind(this);
+    this.findMyDOMNode = this.findMyDOMNode.bind(this);
   }
   updateMyState() {
     var count = this.state.count;
@@ -62,12 +65,25 @@ class Content extends Component {
     this.setState({data: myArray, count: count})
 
   }
+  forceUpdateRandomNumber(){
+    this.forceUpdate();
+  }
+  findMyDOMNode(){
+    var myDiv = document.getElementById('myDiv');
+    ReactDOM.findDOMNode(myDiv).style.color = 'red';
+  }
+
   render() {
+
     return (
       <div className="App-intro" >
         <h1> Components API</h1>
         <button onClick={this.updateMyState}>click meeee! </button>
         <h4>State Data: {this.state.data}</h4>
+        <button onClick={this.forceUpdateRandomNumber}> Random Number:</button>
+        <h4> Random Number: {Math.random()} </h4>
+        <button onClick={this.findMyDOMNode}>Find My DOM NODE</button>
+        <div id="myDiv">This is my DIV</div>
       </div>  
     );
   }
